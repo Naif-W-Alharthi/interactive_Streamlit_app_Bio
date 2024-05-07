@@ -105,7 +105,7 @@ with col1:
 
 with col3:
     if selected_year != 2001.0:
-        lastyear_percent = float(df[df.year == selected_year-1]['Forest area %'].iloc[0])
+        lastyear_percent = float(df[df.year == selected_year-1]['Biodiversity score'].iloc[0])
     else:
         lastyear_percent = bio_diversity_score
     st.metric(label="Global Biodiversity score", value=round(bio_diversity_score), delta=round(bio_diversity_score)-round(lastyear_percent))
