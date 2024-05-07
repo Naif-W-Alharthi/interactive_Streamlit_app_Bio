@@ -106,6 +106,8 @@ with col1:
 with col3:
     if selected_year != 2001.0:
         lastyear_percent = float(df[df.year == selected_year-1]['Forest area %'].iloc[0])
+    else:
+        lastyear_percent = bio_diversity_score
     st.metric(label="Global Biodiversity score", value=round(bio_diversity_score), delta=round(bio_diversity_score)-round(lastyear_percent))
     df_pivot = df_defor_selected.pivot_table(index='Country', columns='Products', values='CO2 (in Tonnes)').reset_index()
     df_melted = pd.melt(df_pivot, id_vars=["Country"], var_name="Products", value_name="CO2 (in Tonnes)")
